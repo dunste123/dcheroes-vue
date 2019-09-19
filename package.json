@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "materialize-css": "^1.0.0-rc.2",
+    "materialize-css": "^1.0.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
   },
@@ -42,11 +42,17 @@
       "eslint:recommended"
     ],
     "rules": {
-      "quotes": [ "error", "single" ],
+      "quotes": [
+        "error",
+        "single"
+      ],
       "no-console": "off",
       "semi": "error",
       "no-unused-vars": "warn",
-      "comma-dangle": [ "error", "always-multiline" ]
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ]
     },
     "parserOptions": {
       "parser": "babel-eslint"

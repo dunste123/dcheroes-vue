@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="col s5">
+        <div class="col s5 offset-m1 offset-xl1">
             <HeroCard v-for="(hero, i) in heros"
                       :key="i"
                     :id="hero.id"

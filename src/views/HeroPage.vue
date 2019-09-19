@@ -6,8 +6,8 @@
 
 <script>
     export default {
-        name: 'HeroPage'
-    }
+        name: 'HeroPage',
+    };
 </script>
 
 <style scoped>

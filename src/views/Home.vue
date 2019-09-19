@@ -1,18 +1,14 @@
 <template>
-    <div class="row">
-        <SideBar/>
-        <router-view></router-view>
+    <div class="container">
+        <div class="row">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script>
-    import SideBar from '../components/SideBar';
-
     export default {
         name: 'home',
-        components: {
-            SideBar,
-        },
         data: () => ({
             teams: [],
         }),
