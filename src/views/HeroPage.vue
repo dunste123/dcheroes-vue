@@ -17,7 +17,7 @@
             <li v-for="(p, i) in powers" :key="i">{{ p }}</li>
         </ul>
 
-        <RateBox />
+        <RateBox :hero-id="id" />
 
         <h3>Comments</h3>
         <div class="container">
@@ -47,6 +47,7 @@
             Comment,
         },
         data: () => ({
+            id: 0,
             name: '',
             image: 'logo.png',
             desc: '',

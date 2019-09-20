@@ -34,18 +34,35 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'RateBox',
+        props: {
+            heroId: {
+                type: Number,
+                required: true,
+            },
+        },
         data: () => ({
             message: '',
         }),
         methods: {
-            submitForm() {
-                /*const ratingNumber = Array.from(document.querySelectorAll('input[name=rating]')).find((c) => c.checked);
-                console.log(
-                    this.message,
-                    ratingNumber.value
-                );*/
+            async submitForm() {
+                const ratingNumber = Array.from(document.querySelectorAll('input[name=rating]')).find((c) => c.checked);
+
+                try {
+                    const data = new FormData();
+                    data.append('hero_id', this.heroId);
+                    data.append('rating', ratingNumber.value);
+                    data.append('ratingReview', this.message);
+
+                    await axios.post('/addRating.php', data);
+                } catch (e) {
+                    console.log(e);
+                } finally {
+                    window.location.reload();
+                }
             },
         },
     };
