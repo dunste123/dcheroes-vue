@@ -1,6 +1,5 @@
 <template>
     <div class="root">
-
         <div class="card-panel grey darken-2 center-align white-text">
             <span class="stars">
                 <i v-for="i in rating" :key="`yellow-${i}`" class="material-icons yellow-text">star</i>

@@ -1,19 +1,15 @@
 <template>
-    <div class="row">
-        <div class="col s12">
-            <div class="card horizontal">
-                <div class="card-image">
-                    <HeroImage :image="image" />
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <span class="card-title">{{ name }}</span>
-                        <p v-html="trunc(desc, 100)"/>
-                    </div>
-                    <div class="card-action">
-                        <router-link :to="{ name: 'hero', params: {teamId: teamId, heroId: id} }">Read more</router-link>
-                    </div>
-                </div>
+    <div class="card horizontal">
+        <div class="card-image">
+            <HeroImage :image="image" />
+        </div>
+        <div class="card-stacked">
+            <div class="card-content">
+                <span class="card-title">{{ name }}</span>
+                <p v-html="trunc(desc, 100)"/>
+            </div>
+            <div class="card-action">
+                <router-link :to="{ name: 'hero', params: {teamId: teamId, heroId: id} }">Read more</router-link>
             </div>
         </div>
     </div>

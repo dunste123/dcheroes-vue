@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="root col s4 offset-m1">
+        <div class="root col s6 m4">
             <HeroCard v-for="(hero, i) in heros"
                       :key="i"
                     :id="hero.id"
@@ -10,7 +10,7 @@
                     :image="hero.image"
             />
         </div>
-        <div class="col s7">
+        <div class="col s6 m8">
             <router-view></router-view>
         </div>
     </div>
