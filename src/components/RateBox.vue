@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <h3>Rate this hero</h3>
-        <form @submit.prevent="submitForm" class="container frmRate">
+        <form @submit.prevent="submitForm" class="frmRate">
             <fieldset>
                 <div class="rate">
                     <input type="radio" id="rating10" name="rating" value="10"><label class="lblRating" for="rating10" title="5 stars"></label>

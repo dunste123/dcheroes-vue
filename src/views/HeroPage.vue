@@ -1,5 +1,6 @@
 <template>
     <div class="root">
+
         <div class="card-panel grey darken-2 center-align white-text">
             <span class="stars">
                 <i v-for="i in rating" :key="`yellow-${i}`" class="material-icons yellow-text">star</i>
@@ -9,25 +10,28 @@
             <HeroImage :image="image"/>
         </div>
 
-        <h3>Info</h3>
-        <p>{{ desc }}</p>
-
-        <h3>Powers</h3>
-        <ul class="browser-default">
-            <li v-for="(p, i) in powers" :key="i">{{ p }}</li>
-        </ul>
-
-        <RateBox :hero-id="id" />
-
-        <h3>Comments</h3>
         <div class="container">
-            <template v-if="comments.length">
-                <Comment
-                        v-for="(c, i) in comments"
-                        :key="i"
-                        :comment="c"/>
-            </template>
-            <p v-else>No comments</p>
+
+            <h3>Info</h3>
+            <p>{{ desc }}</p>
+
+            <h3>Powers</h3>
+            <ul class="browser-default">
+                <li v-for="(p, i) in powers" :key="i">{{ p }}</li>
+            </ul>
+
+            <RateBox :hero-id="id" />
+
+            <h3>Comments</h3>
+            <div>
+                <template v-if="comments.length">
+                    <Comment
+                            v-for="(c, i) in comments"
+                            :key="i"
+                            :comment="c"/>
+                </template>
+                <p v-else>No comments</p>
+            </div>
         </div>
     </div>
 </template>
