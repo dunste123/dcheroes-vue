@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="col s5 offset-m1 offset-xl1">
+        <div class="root col s5">
             <HeroCard v-for="(hero, i) in heros"
                       :key="i"
                     :id="hero.id"
@@ -10,13 +10,16 @@
                     :image="hero.image"
             />
         </div>
-        <router-view></router-view>
+        <div class="col s7">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script>
     import HeroCard from '../components/HeroCard';
     import axios from 'axios';
+    import {parseHero} from '../helpers/helpers';
 
     export default {
         name: 'HeroList',
@@ -38,28 +41,25 @@
         },
         methods: {
             async fetchHeros(teamId = 1) {
-                const { data } = await axios.get(`heroes.php?team_id=${teamId}`);
+                const { data } = await axios.get('heroes.php', {
+                    params: {
+                        team_id: teamId,
+                    },
+                });
 
                 if (!data.length) {
                     this.heros = [];
                 }
 
-                this.heros = data.map((h) => this.mapHero(h));
-            },
-            mapHero(json) {
-                return {
-                    id: Number(json.HERO_ID),
-                    name: json.HERO_NAME,
-                    image: json.HERO_IMAGE,
-                    desc: json.HERO_DESCRIPTION,
-                    powers: JSON.parse(json.HERO_POWERS),
-                    teamId: Number(json.TEAM_ID),
-                };
+                this.heros = data.map(parseHero);
             },
         },
     };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    div.root {
+        overflow-y: scroll;
+        height: 100vh;
+    }
 </style>

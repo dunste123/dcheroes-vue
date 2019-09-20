@@ -3,7 +3,7 @@
         <div class="col s12">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img :src="imageSrc" :alt="name">
+                    <HeroImage :image="image" />
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
@@ -20,8 +20,13 @@
 </template>
 
 <script>
+    import HeroImage from './HeroImage';
+
     export default {
         name: 'hero-card',
+        components: {
+            HeroImage,
+        },
         props: {
             id: {
                 type: Number,
@@ -47,11 +52,6 @@
         methods: {
             trunc(s, length) {
                 return (s.length > length) ? s.substr(0, length - 1) + '&hellip;' : s;
-            },
-        },
-        computed: {
-            imageSrc() {
-                return require(`@/assets/${this.image.replace('img\\', '').replace('\\', '/')}`);
             },
         },
     };

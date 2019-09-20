@@ -1,7 +1,11 @@
 <template>
     <div>
         <div class="container">
-            <a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large blue top-nav sidenav-trigger full hide-on-large-only" href="#" data-target="nav-mobile">
+                    <i class="large material-icons">menu</i>
+                </a>
+            </div>
         </div>
         <ul id="nav-mobile" class="sidenav sidenav-fixed blue lighten-4">
             <router-link class="center-align"
@@ -21,6 +25,7 @@
 
 <script>
     import axios from 'axios';
+    import M from 'materialize-css';
 
     export default {
         name: 'side-bar',
@@ -31,6 +36,9 @@
             if (!this.teams.length) {
                 this.fetchTeams();
             }
+
+            const elems = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(elems);
         },
         methods: {
             async fetchTeams() {
@@ -56,13 +64,9 @@
         margin-top: 20px;
     }
 
-    div {
-        ul {
-            li.active {
-                a {
-                    color: map-get($blue, 'lighten-1');
-                }
-            }
+    li.active {
+        a {
+            color: color('blue', 'lighten-1');
         }
     }
 </style>

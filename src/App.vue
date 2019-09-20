@@ -19,3 +19,8 @@
     },
   };
 </script>
+
+<style lang="scss">
+  @import "~materialize-css/sass/materialize";
+  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+</style>

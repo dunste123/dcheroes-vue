@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import './materialize';
 import './axios';
 
 Vue.config.productionTip = false;
