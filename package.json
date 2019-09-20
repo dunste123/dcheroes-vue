@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build && copy CNAME docs && git add *",
+    "lint": "vue-cli-service lint",
+    "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('Use Yarn LMAO')\""
   },
   "dependencies": {
     "core-js": "^2.6.5",
