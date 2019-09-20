@@ -76,6 +76,7 @@
     .card-image {
         img {
             width: 150px !important;
+            height: 100% !important;
         }
     }
 </style>

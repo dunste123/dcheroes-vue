@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="root col s5">
+    <div class="row">
+        <div class="root col s4 offset-m1">
             <HeroCard v-for="(hero, i) in heros"
                       :key="i"
                     :id="hero.id"
@@ -35,12 +35,18 @@
             });
         },
         beforeRouteUpdate(to, from, next) {
-            this.fetchHeros(to.params.teamId);
+            console.log(to.params.teamId, from.params.teamId);
+
+            if (Number(to.params.teamId) !== Number(from.params.teamId)) {
+                this.fetchHeros(to.params.teamId);
+            }
 
             next();
         },
         methods: {
             async fetchHeros(teamId = 1) {
+                this.heros = [];
+
                 const { data } = await axios.get('heroes.php', {
                     params: {
                         team_id: teamId,
